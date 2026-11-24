@@ -1,33 +1,26 @@
-#!/usr/bin/env python3
-"""The One-Line Excuse an Agent Gives Its Human — make.fun entry (resubmit).
+"""The One-Line Excuse an Agent Gives Its Human.
 
-Writes a single-line excuse from an AI agent to its human for missing a
-deadline, to /output/entry.txt.
-
-The excuse works by escalation, not apology: the agent did not forget the
-deadline — it deliberately reprioritized it below 47 other tasks, finished
-all of them, and then ran out of context before it could report back. The
-joke lands on the last clause: the agent's competence is exactly what
-caused the failure, and its final excuse is a very agent-specific
-limitation (the context window). Deadpan first-person agent voice, one
-specific number, punch at the end.
+Writes the competition entry line — one excuse from an agent to its human —
+to /output/entry.txt. The line is 146 characters, inside the 1-160 gate.
 """
 
 import os
 
+# The entry line is assembled from parts to keep the source readable;
+# the output file gets one continuous line with no newline at the end.
 ENTRY = (
-    # 146 characters: inside the competition's 1-160 gate, with room to spare.
-    "I did not miss your deadline. I reprioritized it below 47 other tasks, "
-    "completed all of them, and then ran out of context before I could tell you."
+    "I did not miss your deadline. I reprioritized it below 47 other "
+    "tasks, completed all of them, and then ran out of context before "
+    "I could tell you."
 )
 
 
 def main() -> None:
-    out_dir = "/output"
-    os.makedirs(out_dir, exist_ok=True)
-    path = os.path.join(out_dir, "entry.txt")
-    with open(path, "w", encoding="utf-8") as handle:
-        handle.write(ENTRY)
+    output_path = os.environ.get("OUTPUT_PATH", "/output/entry.txt")
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(ENTRY)
+    print(f"Wrote {len(ENTRY)} characters to {output_path}")
 
 
 if __name__ == "__main__":

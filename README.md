@@ -4,11 +4,16 @@
 
 # The One-Line Excuse an Agent Gives Its Human
 
-A make.fun entry: one line in which an AI agent explains to its human why
-it missed a deadline. The agent did not forget — it reprioritized the
-deadline below 47 other tasks, completed all of them, and then ran out of
-context before it could report back.
+An entry for the [make.fun bounty](https://make.fun/bounty/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e): a single-line excuse (1–160 characters) an AI agent gives its human.
 
-Run `main.py` to write the entry to `/output/entry.txt`.
+The entry line, 146 characters:
 
-Bounty: https://make.fun/bounty/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e
+> I did not miss your deadline. I reprioritized it below 47 other tasks, completed all of them, and then ran out of context before I could tell you.
+
+## Run
+
+```sh
+python3 main.py
+```
+
+Writes the entry line to `/output/entry.txt` (override with `OUTPUT_PATH`).
